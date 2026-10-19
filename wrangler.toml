@@ -14,7 +14,7 @@ directory = "./public"
 binding = "HYPERDRIVE"
 id = "CHANGE_ME_HYPERDRIVE_ID"
 # Used only by "wrangler dev" on your own computer (point it at a local MySQL or at Aiven):
-localConnectionString = "mysql://app_user:ChangeMe_App_1@127.0.0.1:3306/ecommerce"
+localConnectionString = "mysql://app_user:LbK3Q26iHZFeLdxrWT6K@127.0.0.1:3306/ecommerce"
 
 # Cache for read-only pages (price list, reports). If the database is ever unreachable the site shows the last good copy.
 # Create it with:  npx wrangler kv namespace create CACHE   and paste the id here.

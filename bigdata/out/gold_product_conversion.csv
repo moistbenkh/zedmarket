@@ -1,0 +1,31 @@
+product_id,product_view,add_to_cart,purchase,name,stock_quantity,view_to_purchase_pct
+10,1527,106,28,USB-C Fast Charger,120,1.8
+9,1096,67,16,20000mAh Power Bank,55,1.5
+26,1057,67,16,Maize Meal 25kg,100,1.5
+11,997,74,17,Phone Case Universal,200,1.7
+8,830,55,13,Wireless Earbuds,70,1.6
+20,708,60,13,Cotton T-Shirt,150,1.8
+28,706,51,12,Rice 10kg,65,1.7
+4,685,53,13,Feature Phone Dual SIM,90,1.9
+15,663,41,12,Blender 600W,3,1.8
+22,644,46,11,Formal Shirt,40,1.7
+17,613,37,8,Non-stick Pan Set (3pc),22,1.3
+27,601,42,10,Cooking Oil 5L,80,1.7
+23,558,54,11,Chitenge Wrap Dress,35,2.0
+29,530,37,9,Sugar 2kg,180,1.7
+12,507,35,7,Bluetooth Speaker,30,1.4
+24,500,38,9,Summer Dress,30,1.8
+30,495,37,10,Tea Bags (100),140,2.0
+21,410,31,10,Denim Jeans,60,2.4
+18,368,31,9,Stainless Pot Set (5pc),15,2.4
+13,361,28,6,Electric Kettle 1.7L,45,1.7
+2,355,24,8,Mid-range Smartphone 128GB,25,2.3
+7,324,19,8,Chromebook 11in,4,2.5
+16,311,20,5,Rice Cooker 1.8L,28,1.6
+25,309,20,4,Ladies Sandals,6,1.3
+1,297,26,7,Budget Smartphone 64GB,40,2.4
+5,254,15,5,Student Laptop 14in,18,2.0
+6,172,10,4,Business Laptop 15in,9,2.3
+19,118,6,1,Cast Iron Skillet,2,0.8
+3,116,4,2,Flagship Smartphone 256GB,8,1.7
+14,78,1,1,Microwave Oven 20L,12,1.3

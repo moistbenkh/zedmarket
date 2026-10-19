@@ -1,0 +1,5 @@
+method,payments,failed,completed_amount
+mobile_money,95,9,179942.00
+card,32,1,68051.00
+bank_transfer,16,0,43688.00
+cash_on_delivery,14,4,11234.00

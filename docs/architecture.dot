@@ -1,0 +1,42 @@
+digraph ARCH {
+rankdir=LR; nodesep=0.35; ranksep=0.7; fontname="Helvetica"; bgcolor="white"; compound=true;
+node [shape=box style="rounded,filled" fontname="Helvetica" fontsize=11 margin="0.15,0.08"];
+edge [color="#4a5568" fontname="Helvetica" fontsize=9];
+
+subgraph cluster_src { label="1. Sources"; style="rounded"; color="#a0aec0"; fontsize=12;
+  pg  [label="MySQL 8 on Aiven\n(orders, customers, products,\npayments: the OLTP system)" fillcolor="#c6f6d5" color="#2f855a"];
+  web [label="Web app: Cloudflare Worker\n(connects via Hyperdrive)" fillcolor="#c6f6d5" color="#2f855a"];
+  clk [label="Clickstream events\n(views, searches, cart)" fillcolor="#c6f6d5" color="#2f855a"]; }
+
+subgraph cluster_ing { label="2. Ingestion"; style="rounded"; color="#a0aec0"; fontsize=12;
+  batch [label="Batch export\n(CSV / JSON lines)" fillcolor="#c6f6d5" color="#2f855a"];
+  kafka [label="Apache Kafka\n(streaming events, CDC)" fillcolor="#edf2f7" color="#718096" style="rounded,filled,dashed"]; }
+
+subgraph cluster_store { label="3. Storage: data lake"; style="rounded"; color="#a0aec0"; fontsize=12;
+  raw [label="Raw zone\nParquet partitioned by date" fillcolor="#c6f6d5" color="#2f855a"];
+  cur [label="Curated zone\nclean, joined, aggregated" fillcolor="#c6f6d5" color="#2f855a"];
+  hdfs [label="HDFS / S3-compatible\nobject storage (production)" fillcolor="#edf2f7" color="#718096" style="rounded,filled,dashed"]; }
+
+subgraph cluster_proc { label="4. Processing"; style="rounded"; color="#a0aec0"; fontsize=12;
+  spark [label="Apache Spark\n(batch jobs: PySpark)" fillcolor="#c6f6d5" color="#2f855a"];
+  ss    [label="Spark Structured Streaming\n(near real time)" fillcolor="#edf2f7" color="#718096" style="rounded,filled,dashed"];
+  hive  [label="Hive / Trino\n(SQL over the lake)" fillcolor="#edf2f7" color="#718096" style="rounded,filled,dashed"]; }
+
+subgraph cluster_serve { label="5. Serving"; style="rounded"; color="#a0aec0"; fontsize=12;
+  dw  [label="Data warehouse\n(star schema: fact_sales,\ndim_product, dim_customer, dim_date)" fillcolor="#edf2f7" color="#718096" style="rounded,filled,dashed"];
+  bi  [label="Dashboards\n(Excel / Power BI / Superset)" fillcolor="#c6f6d5" color="#2f855a"]; }
+
+web -> pg [label="orders, payments"];
+web -> clk [label="tracker"];
+pg -> batch [label="nightly export"];
+pg -> kafka [label="CDC" style=dashed];
+clk -> batch; clk -> kafka [style=dashed];
+batch -> raw; kafka -> raw [style=dashed]; kafka -> ss [style=dashed];
+raw -> hdfs [style=dashed arrowhead=none label="same layout,\nat scale" fontcolor="#718096"];
+raw -> spark; spark -> cur; ss -> cur [style=dashed];
+cur -> hive [style=dashed]; cur -> dw [style=dashed]; hive -> dw [style=dashed];
+cur -> bi [label="CSV / Parquet"]; dw -> bi [style=dashed];
+subgraph cluster_key { label="Key"; style="rounded"; color="#cbd5e0"; fontsize=10;
+  k1 [label="built and tested in this project" fillcolor="#c6f6d5" color="#2f855a" fontsize=10];
+  k2 [label="production target (designed, not built)" fillcolor="#edf2f7" color="#718096" style="rounded,filled,dashed" fontsize=10]; k1 -> k2 [style=invis]; }
+}

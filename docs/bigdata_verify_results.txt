@@ -1,0 +1,7 @@
+Q1 top products : 30 products in MySQL, 30 in Spark, mismatches: 0
+Q3 monthly rev. : 13 months in MySQL, 13 in Spark, mismatches: 0
+Purchase sessions in clickstream: 157; non-cart orders in MySQL: 157
+RESULT: ALL MATCH
+
+NOTE: this output was produced in the earlier build against the same data loaded in PostgreSQL (the seed data is identical, so the
+Spark results do not change). After deploying to Aiven, re-run  python3 bigdata/verify_match.py  and replace this file with the new output.

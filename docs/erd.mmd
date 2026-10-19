@@ -1,0 +1,11 @@
+erDiagram
+    categories ||--o{ categories : "parent of"
+    categories ||--o{ products : contains
+    customers ||--o{ addresses : has
+    customers ||--o{ orders : places
+    addresses ||--o{ orders : "ships to"
+    orders ||--|{ order_items : includes
+    products ||--o{ order_items : "sold as"
+    orders ||--o{ payments : "paid by"
+    customers ||--o{ reviews : writes
+    products ||--o{ reviews : receives

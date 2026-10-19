@@ -1,5 +1,5 @@
 # Cloudflare Worker configuration. Fill in the two ids marked CHANGE_ME (see docs/deploy.md, steps 5 and 6).
-name = "zed-market"
+name = "zedmarket"
 main = "src/index.js"
 compatibility_date = "2025-09-01"
 compatibility_flags = ["nodejs_compat"]

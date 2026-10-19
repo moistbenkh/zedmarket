@@ -1,3 +1,0 @@
-clickstream.jsonl: 5,936,387 bytes
-Parquet (snappy, partitioned by date): 1,676,252 bytes in 365 files
-Parquet is 28% of the JSON size

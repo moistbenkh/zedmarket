@@ -1,4 +1,0 @@
-Query: events on 2025-10-18 only
-Physical plan shows -> PartitionFilters: [isnotnull(event_date#514), (event_date#514 = 2025-10-18)]
-Partitions on disk: 365; this query reads 1 of them
-rows returned: 50
